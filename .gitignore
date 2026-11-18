@@ -11,3 +11,4 @@
 /storage/framework/cache/*
 /bootstrap/cache/*.php
 !.gitignore
+/_respaldo_interfaz_*/
