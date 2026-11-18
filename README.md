@@ -64,11 +64,14 @@ En Windows se puede usar [Laravel Herd](https://herd.laravel.com/windows) para d
 
 ## Pruebas
 
-Para ejecutar las pruebas automatizadas del backend:
+Para ejecutar las pruebas automatizadas del backend en Windows (CMD):
 
 ```bat
-php artisan test
+composer dump-autoload
+vendor\bin\phpunit.bat
 ```
+
+En Linux/macOS, utiliza `vendor/bin/phpunit`. En este repositorio se ejecuta PHPUnit directamente; el comando opcional `php artisan test` requiere componentes de desarrollo que no se incluyen por defecto en este proyecto.
 
 El resultado de este comando debe verificarse y conservarse como evidencia. También deben realizarse pruebas de navegación, georreferenciación, persistencia, validación de formularios y uso en dispositivos distintos.
 
