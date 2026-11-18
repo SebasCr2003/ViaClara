@@ -39,7 +39,7 @@ La dependencia `mockery/mockery` está declarada como dependencia de desarrollo 
 | P01 | Restringir acceso a reportes sin iniciar sesión | PHPUnit / pruebas de autenticación | Automatizada, aprobada |
 | P02 | Inicio y cierre de sesión | PHPUnit / flujo de sesión | Automatizada, aprobada |
 | P03 | Registrar y consultar una afectación en SQLite | PHPUnit / modelo y endpoint de reportes | Automatizada, aprobada |
-| P04 | Conservar reportes tras reiniciar el servidor | Verificación manual con base persistente | Pendiente de evidenciar |
+| P04 | Conservar reportes tras reiniciar el servidor | Reinicio manual del servidor Laravel; el usuario confirmó el 18/11/2026 que los seis reportes y sus estados seguían presentes | Funcionamiento reportado; captura pendiente |
 | P05 | Editar reporte e historial | PHPUnit / actualización de registro | Automatizada, aprobada |
 | P06 | Cambiar estado y registrar transición | PHPUnit / historial | Automatizada, aprobada |
 | P07 | Rechazar valores inválidos | PHPUnit / validación | Automatizada, aprobada |
@@ -51,6 +51,10 @@ La dependencia `mockery/mockery` está declarada como dependencia de desarrollo 
 ## Registro de validación móvil — 18 de noviembre de 2026
 
 El usuario informó que VíaClara funcionó desde el celular conectado a la misma red local que el computador donde se ejecuta Laravel. La respuesta se dio después de solicitar comprobar acceso, mapa y consulta de los seis reportes. **Resultado comunicado: satisfactorio.** No se dispone todavía de capturas, medidas de desempeño ni observación independiente, por lo que se registra como verificación manual reportada, no como acreditación concluyente de TRL5.
+
+## Registro de persistencia tras reinicio — 18 de noviembre de 2026
+
+El usuario confirmó que, tras detener y volver a iniciar el servidor Laravel, los **seis reportes** seguían disponibles con sus respectivos estados en VíaClara. **Resultado comunicado: satisfactorio.** Pendiente adjuntar captura de la lista y detallar el entorno y hora; no constituye por sí solo validación completa de TRL5.
 
 ## Evidencias a conservar
 
@@ -69,7 +73,7 @@ Los reportes ficticios empleados en pruebas de software **no son evidencia empí
 
 ## Pendientes para sustentar TRL5
 
-- Confirmar y documentar la persistencia tras reiniciar la aplicación.
+- Adjuntar captura con los seis reportes después del reinicio del servidor; su persistencia ya fue confirmada verbalmente por el usuario.
 - Conservar evidencias visuales de la prueba de acceso y consulta desde el celular en la red local; el usuario ya informó que funcionó.
 - Realizar tareas guiadas con participantes reales y reunir resultados de usabilidad.
 - Asociar cada prueba con los requerimientos y documentar hallazgos.
