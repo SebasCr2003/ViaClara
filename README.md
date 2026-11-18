@@ -92,3 +92,4 @@ Los reportes de prueba utilizados para verificar la aplicación son distintos de
 
 - [`Arquitectura y Scrum`](documentacion/ARQUITECTURA_Y_SCRUM.md)
 - [`Plan de pruebas`](documentacion/PRUEBAS_SPRINT3.md)
+- [`Protocolo de usabilidad con cinco participantes`](documentacion/PROTOCOLO_USABILIDAD.md)
