@@ -44,9 +44,13 @@ La dependencia `mockery/mockery` está declarada como dependencia de desarrollo 
 | P06 | Cambiar estado y registrar transición | PHPUnit / historial | Automatizada, aprobada |
 | P07 | Rechazar valores inválidos | PHPUnit / validación | Automatizada, aprobada |
 | P08 | Importar y proteger respaldos | PHPUnit / importación válida e inválida | Automatizada, aprobada |
-| P09 | Abrir la plataforma desde un segundo dispositivo autorizado y consultar los mismos reportes | Prueba de integración en red local | Pendiente de evidenciar |
+| P09 | Abrir la plataforma desde un segundo dispositivo autorizado y consultar los mismos reportes | Prueba manual desde un celular en la misma red local, confirmada por el usuario el 18/11/2026 | Funcionamiento reportado; capturas pendientes |
 | P10 | Completar tareas con participantes reales y medir satisfacción/usabilidad | Prueba de usuario con consentimiento | Pendiente de evidenciar |
-| P11 | Navegar mapa y marcadores en pantalla móvil | Prueba visual y funcional | Pendiente de evidenciar |
+| P11 | Navegar mapa y marcadores en pantalla móvil | El usuario indicó que la prueba en celular funcionó el 18/11/2026; falta evidencia visual específica del mapa | Funcionamiento reportado; verificación documentada pendiente |
+
+## Registro de validación móvil — 18 de noviembre de 2026
+
+El usuario informó que VíaClara funcionó desde el celular conectado a la misma red local que el computador donde se ejecuta Laravel. La respuesta se dio después de solicitar comprobar acceso, mapa y consulta de los seis reportes. **Resultado comunicado: satisfactorio.** No se dispone todavía de capturas, medidas de desempeño ni observación independiente, por lo que se registra como verificación manual reportada, no como acreditación concluyente de TRL5.
 
 ## Evidencias a conservar
 
@@ -66,7 +70,7 @@ Los reportes ficticios empleados en pruebas de software **no son evidencia empí
 ## Pendientes para sustentar TRL5
 
 - Confirmar y documentar la persistencia tras reiniciar la aplicación.
-- Validar el flujo integrado desde un segundo dispositivo en un entorno pertinente y seguro.
+- Conservar evidencias visuales de la prueba de acceso y consulta desde el celular en la red local; el usuario ya informó que funcionó.
 - Realizar tareas guiadas con participantes reales y reunir resultados de usabilidad.
 - Asociar cada prueba con los requerimientos y documentar hallazgos.
 - Incorporar las evidencias al documento maestro y al video de sustentación (máximo 10 minutos).
