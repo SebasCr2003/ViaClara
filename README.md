@@ -1,70 +1,91 @@
-# VíaClara — Sprint 3 (proyecto aplicado UNAD)
+# VíaClara
 
-**Plataforma web georreferenciada para la gestión de afectaciones viales en Florencia, Caquetá.**
+**Plataforma web georreferenciada para la gestión de afectaciones viales en Florencia, Caquetá, Colombia.**
 
-Esta entrega integra el frontend del Sprint 2 con **código de backend Laravel 13**, persistencia mediante **SQLite**, autenticación por sesión y rutas de operaciones CRUD. La carpeta ZIP **no incorpora** las dependencias de Composer (`vendor/`): deben instalarse en un equipo con PHP 8.3+, Composer, `pdo_sqlite`, `sqlite3`, `mbstring`, `xml` y demás extensiones oficiales de Laravel.
+Proyecto aplicado de Ingeniería de Sistemas desarrollado en el marco del curso Proyecto de Grado de la Universidad Nacional Abierta y a Distancia (UNAD). La aplicación permite registrar, localizar, consultar y hacer seguimiento a reportes de afectaciones viales.
 
-## Inicio rápido Windows
+## Funcionalidades
 
-1. Desde la carpeta superior ejecuta `01_INSTALAR_VIACLARA_WINDOWS.bat` con conexión a Internet. Se necesita PHP y Composer instalados; si no los tienes, [Laravel Herd](https://herd.laravel.com/windows) es una alternativa de configuración.
-2. La instalación ejecuta `composer install`, genera `.env`, APP_KEY y SQLite, crea tablas, y solicita los datos del administrador.
-3. Ejecuta `02_INICIAR_VIACLARA_WINDOWS.bat` y entra a **http://127.0.0.1:8000**.
-4. Inicia sesión con el correo y contraseña que configuraste. El servidor comienza sin reportes ficticios precargados.
+- Inicio y cierre de sesión de usuario.
+- Registro de reportes con tipo de afectación, prioridad, sector, descripción y coordenadas geográficas.
+- Visualización de reportes en un mapa interactivo basado en OpenStreetMap.
+- Consulta, búsqueda y filtrado de registros.
+- Edición de reportes y actualización de estados con historial de cambios.
+- Panel de estadísticas de las afectaciones registradas.
+- Exportación e importación de respaldos de reportes.
 
-Si solo quieres explorar pantallas sin PHP, usa `../ABRIR_DEMO_SIN_INSTALAR.html`: **es la versión sin backend del Sprint 2**, independiente, con almacenamiento local en el navegador.
+## Tecnologías
 
-## Inicio manual (Linux/macOS)
+| Componente | Tecnología |
+| --- | --- |
+| Aplicación web | Laravel 13 y PHP 8.3 o superior |
+| Interfaz | Blade, HTML, CSS y JavaScript |
+| Persistencia | SQLite y Eloquent ORM |
+| Cartografía | OpenStreetMap |
+| Control de versiones | Git y GitHub |
+| Organización del desarrollo | Scrum |
 
-```sh
-cd viaclara_laravel
+## Requisitos
+
+- PHP compatible con Laravel 13, con extensiones SQLite habilitadas.
+- Composer.
+- Conexión a Internet para instalar las dependencias y cargar el mapa base.
+
+## Instalación local en Windows (CMD)
+
+Ejecuta estos comandos **desde la raíz del repositorio**, donde se encuentran `artisan` y `composer.json`:
+
+```bat
 composer install
-cp .env.example .env
+copy .env.example .env
+if not exist database\database.sqlite type nul > database\database.sqlite
 php artisan key:generate
-# crea un archivo vacío database/database.sqlite
 php artisan migrate
 php artisan viaclara:admin
-php artisan serve --host=127.0.0.1 --port=8000
+php artisan serve
 ```
 
-## Arquitectura
+Abre **http://127.0.0.1:8000** en el navegador e inicia sesión con la cuenta configurada mediante `php artisan viaclara:admin`.
 
-- `resources/views/app.blade.php`: interfaz de la plataforma, adaptada de Sprint 2.
-- `resources/views/login.blade.php`: pantalla de inicio de sesión.
-- `public/assets/css`, `public/assets/js`: estilos y lógica frontend con operaciones HTTP usando sesión/CSRF.
-- `routes/web.php`: rutas de interfaz y API interna protegidas con `auth`.
-- `app/Http/Controllers/ReportController.php`: CRUD, validación, historial e importación de respaldo.
-- `app/Models/Report.php`, `app/Models/User.php`: modelos Eloquent.
-- `database/migrations`: tablas `users` y `reports`.
-- `database/database.sqlite`: creada por el instalador, **no subir a GitHub**.
+En Windows se puede usar [Laravel Herd](https://herd.laravel.com/windows) para disponer de PHP y Composer. **Si la aplicación ya está instalada y funcionando, no necesitas repetir la instalación ni crear de nuevo el administrador.**
 
-## Seguridad y límites
+## Estructura del proyecto
 
-- El backend usa autenticación Laravel, cookie de sesión y protección CSRF de rutas web. No permite registro público automático.
-- La cuenta creada por línea de comandos es un usuario administrador de **entorno local**; **no existen permisos diferenciados por rol** ni una bitácora de auditoría inmutable.
-- El código está planteado para una aplicación académica local; no está endurecido ni desplegado para producción, por lo que **no debe publicarse abiertamente** sin revisión de seguridad, HTTPS, protección de datos y controles de abuso.
-- Los reportes se almacenan en SQLite del equipo que ejecuta Laravel. Para compartirlos, el servidor debe ser accesible desde otros equipos autorizados; no basta con abrir la demo HTML.
-- El mapa usa imágenes de OpenStreetMap por Internet; puede mostrar fondo sin teselas si está bloqueado o sin conexión.
-- El archivo `.env`, SQLite y los respaldos de datos reales deben mantenerse fuera de repositorios públicos.
-- **TRL5 no se declara alcanzado en esta entrega**. Se requiere ejecución, integración, pruebas reales y evidencias en entorno relevante. Los datos simulados de la Fase 3 no sustituyen las 30 encuestas reales solicitadas por el tutor.
+| Ruta | Descripción |
+| --- | --- |
+| `app/Http/Controllers/` | Autenticación y operaciones sobre reportes |
+| `app/Models/` | Modelos de usuarios y afectaciones |
+| `resources/views/` | Pantallas Blade de inicio de sesión y gestión |
+| `public/assets/` | Archivos CSS y JavaScript de la interfaz |
+| `routes/web.php` | Rutas web y endpoints internos protegidos |
+| `database/migrations/` | Definición de tablas de SQLite |
+| `tests/Feature/` | Pruebas automatizadas de Laravel |
+| `documentacion/` | Arquitectura, Scrum y plan de pruebas |
 
 ## Pruebas
 
-```sh
-composer install
+Para ejecutar las pruebas automatizadas del backend:
+
+```bat
 php artisan test
 ```
 
-Las pruebas escritas para Laravel requieren dependencias instaladas y **NO pudieron ejecutarse en el ambiente de generación**. Se verificó sintaxis PHP y JavaScript, y se realizó revisión estática de archivos. Ver `documentacion/PRUEBAS_SPRINT3.md`.
+El resultado de este comando debe verificarse y conservarse como evidencia. También deben realizarse pruebas de navegación, georreferenciación, persistencia, validación de formularios y uso en dispositivos distintos.
 
-## API (sesión iniciada)
+## Seguridad y tratamiento de datos
 
-| Método | Ruta | Función |
-| --- | --- | --- |
-| GET | `/api/reportes` | Lista todos los reportes |
-| POST | `/api/reportes` | Crea reporte |
-| PUT | `/api/reportes/{id}` | Edita contenido |
-| PATCH | `/api/reportes/{id}/estado` | Cambia estado e historial |
-| DELETE | `/api/reportes/{id}` | Elimina reporte |
-| POST | `/api/reportes/importar` | Reemplaza reportes con respaldo compatible, previa confirmación de interfaz |
+- El archivo `.env`, la base de datos SQLite y las credenciales personales **no deben subirse a GitHub**.
+- El acceso se protege mediante autenticación de Laravel y tokens CSRF en las operaciones correspondientes.
+- La aplicación está en una fase de validación académica; antes de un despliegue público se requieren controles adicionales de seguridad, privacidad y operación.
+- La plataforma no constituye un canal oficial de recepción de solicitudes ante autoridades municipales.
 
-Los endpoints tienen controles de sesión y token CSRF en las peticiones realizadas por la interfaz. La importación es destructiva: **haz antes un respaldo JSON**.
+## Estado de validación académica
+
+El código se encuentra versionado en este repositorio. La instalación y el registro de reportes se han realizado en un entorno local, pero **el nivel TRL5 no se acredita únicamente con publicar el código**. Deben reunirse los resultados de pruebas de integración y validación en un entorno relevante, junto con la evidencia y el video exigidos en la Fase 4.
+
+Los reportes de prueba utilizados para verificar la aplicación son distintos de los datos empíricos de la investigación; estos últimos deben proceder de participantes reales.
+
+## Documentación
+
+- [`Arquitectura y Scrum`](documentacion/ARQUITECTURA_Y_SCRUM.md)
+- [`Plan de pruebas`](documentacion/PRUEBAS_SPRINT3.md)
