@@ -1,26 +1,35 @@
-# Arquitectura y metodología ágil — Sprint 3
+# Arquitectura y metodología Scrum — VíaClara
 
-## Flujo de datos
+## Arquitectura de la aplicación
 
-Usuario autenticado → interfaz Blade/JavaScript → rutas web Laravel con sesión y CSRF → controlador de reportes → validación → modelo Eloquent → archivo SQLite.
+VíaClara utiliza Laravel como base de la aplicación web, Blade y JavaScript para la interfaz y SQLite para almacenar la información.
 
-Las consultas retornan JSON a la interfaz y esta actualiza mapa, estadísticas, tabla e historial. La demo HTML independiente **no** utiliza estos endpoints.
+El funcionamiento general es el siguiente:
 
-## Historias de usuario y aceptación
+**Inicio de sesión → Interfaz web → Rutas Laravel → Validación de datos → Modelos Eloquent → Base de datos SQLite.**
 
-- **HU-09 / 5 puntos:** Como administrador, quiero iniciar sesión para proteger el acceso al entorno de pruebas. **Dado** que no he iniciado sesión, **cuando** solicito la lista de reportes, **entonces** se me redirige a ingreso.
-- **HU-10 / 8 puntos:** Como administrador, quiero crear y editar reportes persistentes para recuperar los datos tras reiniciar la página. **Dado** que completé los campos obligatorios, **cuando** guardo, **entonces** se genera un ID y el registro aparece al consultar la API.
-- **HU-11 / 5 puntos:** Como administrador, quiero cambiar el estado para seguir las afectaciones. **Dado** un reporte Pendiente, **cuando** lo cambio a En revisión, **entonces** se conserva el reporte y se añade evento al historial.
-- **HU-12 / 5 puntos:** Como administrador, quiero importar/exportar respaldos de la base para conservar datos de prueba. **Dado** un JSON válido, **cuando** confirmo el reemplazo, **entonces** se recupera el conjunto esperado de reportes.
+Las consultas actualizan las secciones de mapa, reportes, estadísticas e historial. Las operaciones de gestión se realizan con sesión autenticada.
 
-## Roles Scrum sugeridos
+## Organización del desarrollo con Scrum
 
-- Product Owner: portavoz de los requisitos acordados con grupo y tutor.
-- Scrum Master: seguimiento de bloqueos y ceremonias.
-- Equipo de desarrollo: implementación, documentación y pruebas.
+Se organizaron las funcionalidades mediante historias de usuario, estimaciones y revisiones de los avances. Este enfoque permite desarrollar y comprobar los módulos de manera progresiva.
 
-Las estimaciones Scrum anteriores son **propuestas**, requieren validación del equipo.
+| Historia | Necesidad | Estimación |
+| --- | --- | ---: |
+| HU-09 | Iniciar sesión y proteger el acceso a los reportes | 5 puntos |
+| HU-10 | Registrar y editar reportes de afectaciones | 8 puntos |
+| HU-11 | Cambiar el estado de una afectación y consultar su historial | 5 puntos |
+| HU-12 | Exportar e importar respaldos de reportes | 5 puntos |
 
-## Definition of Done (pendiente)
+## Criterios de aceptación
 
-Código revisado, pruebas de integración ejecutadas con resultados, evidencia de funcionamiento en equipo real, retroalimentación de usuarios, bitácora de Sprint Review y Sprint Retrospective.
+- **HU-09:** si no se ha iniciado sesión, al intentar acceder a los reportes se solicita autenticación.
+- **HU-10:** al registrar información válida, el reporte queda guardado y puede consultarse posteriormente.
+- **HU-11:** al actualizar un estado, el cambio aparece en el reporte y su historial.
+- **HU-12:** al importar un respaldo válido, se recuperan los registros correspondientes.
+
+## Integración y resultados
+
+La implementación reúne las funciones de autenticación, registro, mapa, consulta, edición, seguimiento y estadísticas. Las pruebas automatizadas de Laravel finalizaron con **11 casos aprobados y 76 aserciones**, complementadas con verificaciones de funcionamiento en computador y celular.
+
+Los resultados y evidencias se describen en [Pruebas y validación](PRUEBAS_SPRINT3.md) y en [Evaluación de usabilidad](PROTOCOLO_USABILIDAD.md).
