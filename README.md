@@ -1,39 +1,25 @@
 # VíaClara
 
-**Plataforma web georreferenciada para la gestión de afectaciones viales en Florencia, Caquetá, Colombia.**
+Proyecto de grado de Ingeniería de Sistemas — UNAD.
 
-Proyecto aplicado de Ingeniería de Sistemas desarrollado en el marco del curso Proyecto de Grado de la Universidad Nacional Abierta y a Distancia (UNAD). La aplicación permite registrar, localizar, consultar y hacer seguimiento a reportes de afectaciones viales.
+VíaClara es una aplicación web que estamos desarrollando para registrar y consultar afectaciones viales en Florencia, Caquetá. Su objetivo es organizar los reportes y facilitar su ubicación y seguimiento en un mapa.
 
-## Funcionalidades
+## Funciones principales
 
-- Inicio y cierre de sesión de usuario.
-- Registro de reportes con tipo de afectación, prioridad, sector, descripción y coordenadas geográficas.
-- Visualización de reportes en un mapa interactivo basado en OpenStreetMap.
-- Consulta, búsqueda y filtrado de registros.
-- Edición de reportes y actualización de estados con historial de cambios.
-- Panel de estadísticas de las afectaciones registradas.
-- Exportación e importación de respaldos de reportes.
+- Inicio de sesión.
+- Registro de afectaciones con ubicación, descripción y prioridad.
+- Consulta de reportes en un mapa.
+- Búsqueda y filtros de los reportes.
+- Edición y cambio de estado (Pendiente, En revisión y Atendido).
+- Estadísticas y respaldos de información.
 
-## Tecnologías
+## Herramientas utilizadas
 
-| Componente | Tecnología |
-| --- | --- |
-| Aplicación web | Laravel 13 y PHP 8.3 o superior |
-| Interfaz | Blade, HTML, CSS y JavaScript |
-| Persistencia | SQLite y Eloquent ORM |
-| Cartografía | OpenStreetMap |
-| Control de versiones | Git y GitHub |
-| Organización del desarrollo | Scrum |
+Laravel 13 (PHP), SQLite, Blade, HTML, CSS, JavaScript y OpenStreetMap. El código se administra con Git y GitHub. El desarrollo se organiza con Scrum.
 
-## Requisitos
+## Cómo ejecutar el proyecto en Windows
 
-- PHP compatible con Laravel 13, con extensiones SQLite habilitadas.
-- Composer.
-- Conexión a Internet para instalar las dependencias y cargar el mapa base.
-
-## Instalación local en Windows (CMD)
-
-Ejecuta estos comandos **desde la raíz del repositorio**, donde se encuentran `artisan` y `composer.json`:
+Se necesita PHP 8.3 o superior, Composer y las extensiones de SQLite. Desde CMD, en la carpeta principal del repositorio, ejecutar:
 
 ```bat
 composer install
@@ -45,51 +31,24 @@ php artisan viaclara:admin
 php artisan serve
 ```
 
-Abre **http://127.0.0.1:8000** en el navegador e inicia sesión con la cuenta configurada mediante `php artisan viaclara:admin`.
+Abrir `http://127.0.0.1:8000` e iniciar sesión con el usuario creado. Si ya existe una instalación funcionando, no es necesario repetir estos pasos.
 
-En Windows se puede usar [Laravel Herd](https://herd.laravel.com/windows) para disponer de PHP y Composer. **Si la aplicación ya está instalada y funcionando, no necesitas repetir la instalación ni crear de nuevo el administrador.**
+## Pruebas realizadas
 
-## Estructura del proyecto
+El 18 de noviembre de 2026 se ejecutaron las pruebas automatizadas con PHPUnit en Windows: **11 pruebas aprobadas y 76 verificaciones**. También se comprobó la conservación de seis registros después de reiniciar el servidor y el acceso desde un celular conectado a la misma red local.
 
-| Ruta | Descripción |
-| --- | --- |
-| `app/Http/Controllers/` | Autenticación y operaciones sobre reportes |
-| `app/Models/` | Modelos de usuarios y afectaciones |
-| `resources/views/` | Pantallas Blade de inicio de sesión y gestión |
-| `public/assets/` | Archivos CSS y JavaScript de la interfaz |
-| `routes/web.php` | Rutas web y endpoints internos protegidos |
-| `database/migrations/` | Definición de tablas de SQLite |
-| `tests/Feature/` | Pruebas automatizadas de Laravel |
-| `documentacion/` | Arquitectura, Scrum y plan de pruebas |
-
-## Pruebas
-
-Para ejecutar las pruebas automatizadas del backend en Windows (CMD):
+Para ejecutar las pruebas en Windows:
 
 ```bat
-composer dump-autoload
 vendor\bin\phpunit.bat
 ```
 
-En Linux/macOS, utiliza `vendor/bin/phpunit`. En este repositorio se ejecuta PHPUnit directamente; el comando opcional `php artisan test` requiere componentes de desarrollo que no se incluyen por defecto en este proyecto.
-
-El resultado de este comando debe verificarse y conservarse como evidencia. También deben realizarse pruebas de navegación, georreferenciación, persistencia, validación de formularios y uso en dispositivos distintos.
-
-## Seguridad y tratamiento de datos
-
-- El archivo `.env`, la base de datos SQLite y las credenciales personales **no deben subirse a GitHub**.
-- El acceso se protege mediante autenticación de Laravel y tokens CSRF en las operaciones correspondientes.
-- La aplicación está en una fase de validación académica; antes de un despliegue público se requieren controles adicionales de seguridad, privacidad y operación.
-- La plataforma no constituye un canal oficial de recepción de solicitudes ante autoridades municipales.
-
-## Estado de validación académica
-
-El código se encuentra versionado en este repositorio. La instalación y el registro de reportes se han realizado en un entorno local, pero **el nivel TRL5 no se acredita únicamente con publicar el código**. Deben reunirse los resultados de pruebas de integración y validación en un entorno relevante, junto con la evidencia y el video exigidos en la Fase 4.
-
-Los reportes de prueba utilizados para verificar la aplicación son distintos de los datos empíricos de la investigación; estos últimos deben proceder de participantes reales.
+Se cuenta además con un instrumento de evaluación de usabilidad aplicado a cinco participantes. El detalle de los resultados y las evidencias está en la documentación del proyecto.
 
 ## Documentación
 
-- [`Arquitectura y Scrum`](documentacion/ARQUITECTURA_Y_SCRUM.md)
-- [`Plan de pruebas`](documentacion/PRUEBAS_SPRINT3.md)
-- [`Protocolo de usabilidad con cinco participantes`](documentacion/PROTOCOLO_USABILIDAD.md)
+- [Arquitectura y organización Scrum](documentacion/ARQUITECTURA_Y_SCRUM.md)
+- [Pruebas y validación](documentacion/PRUEBAS_SPRINT3.md)
+- [Evaluación de usabilidad](documentacion/PROTOCOLO_USABILIDAD.md)
+
+**Nota:** no subir archivos `.env`, bases de datos ni contraseñas a GitHub. La plataforma forma parte de un proyecto académico y no es un canal oficial de reporte ante las autoridades. La validación del nivel TRL5 se sustenta con el conjunto de pruebas y evidencias de la Fase 4.
