@@ -45,7 +45,7 @@ La dependencia `mockery/mockery` está declarada como dependencia de desarrollo 
 | P07 | Rechazar valores inválidos | PHPUnit / validación | Automatizada, aprobada |
 | P08 | Importar y proteger respaldos | PHPUnit / importación válida e inválida | Automatizada, aprobada |
 | P09 | Abrir la plataforma desde un segundo dispositivo autorizado y consultar los mismos reportes | Prueba manual desde un celular en la misma red local, confirmada por el usuario el 18/11/2026 | Funcionamiento reportado; capturas pendientes |
-| P10 | Completar tareas con participantes reales y medir satisfacción/usabilidad | Prueba de usuario con consentimiento | Pendiente de evidenciar |
+| P10 | Completar tareas con participantes reales y medir satisfacción/usabilidad | Instrumento ViaClara_Usabilidad.xlsx: 5 participantes reales, 15 tareas, 5 consentimientos registrados (19/11/2026) | Realizada; anexar Excel y soportes de aplicación al documento maestro |
 | P11 | Navegar mapa y marcadores en pantalla móvil | El usuario indicó que la prueba en celular funcionó el 18/11/2026; falta evidencia visual específica del mapa | Funcionamiento reportado; verificación documentada pendiente |
 
 ## Registro de validación móvil — 18 de noviembre de 2026
@@ -55,6 +55,12 @@ El usuario informó que VíaClara funcionó desde el celular conectado a la mism
 ## Registro de persistencia tras reinicio — 18 de noviembre de 2026
 
 El usuario confirmó que, tras detener y volver a iniciar el servidor Laravel, los **seis reportes** seguían disponibles con sus respectivos estados en VíaClara. **Resultado comunicado: satisfactorio.** Pendiente adjuntar captura de la lista y detallar el entorno y hora; no constituye por sí solo validación completa de TRL5.
+
+## Resultados de evaluación de usabilidad — 19 de noviembre de 2026
+
+El responsable del proyecto confirmó la participación **real de cinco personas**, registradas con códigos U01–U05 en el instrumento `ViaClara_Usabilidad.xlsx`. El archivo consigna 15 tareas evaluadas, 12 completadas sin ayuda (80 %), 2 con ayuda (13,3 %) y 1 no completada (6,7 %). El tiempo medio registrado fue 102,13 segundos por tarea, la satisfacción media 4,16/5 y se documentaron 11 errores. El consentimiento aparece marcado en los cinco registros. Estos resultados son descriptivos de los participantes evaluados y no permiten generalizar a toda la población de Florencia.
+
+Se recomienda anexar el archivo Excel y los soportes de la aplicación a la entrega académica; no subir identificaciones o información personal al repositorio.
 
 ## Evidencias a conservar
 
@@ -75,7 +81,7 @@ Los reportes ficticios empleados en pruebas de software **no son evidencia empí
 
 - Adjuntar captura con los seis reportes después del reinicio del servidor; su persistencia ya fue confirmada verbalmente por el usuario.
 - Conservar evidencias visuales de la prueba de acceso y consulta desde el celular en la red local; el usuario ya informó que funcionó.
-- Realizar tareas guiadas con participantes reales y reunir resultados de usabilidad.
+- Incorporar al documento maestro el Excel y las evidencias de la evaluación de usabilidad realizada con cinco participantes reales.
 - Asociar cada prueba con los requerimientos y documentar hallazgos.
 - Incorporar las evidencias al documento maestro y al video de sustentación (máximo 10 minutos).
 
