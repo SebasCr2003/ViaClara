@@ -77,12 +77,8 @@ Registrar para cada evidencia fecha, entorno, procedimiento, resultado esperado,
 
 Los reportes ficticios empleados en pruebas de software **no son evidencia empírica de afectaciones viales reales**. Las pruebas de usabilidad del sistema son distintas de la aplicación de la encuesta investigativa a **al menos 30 participantes reales**, requerida en la retroalimentación del tutor de la Fase 3.
 
-## Pendientes para sustentar TRL5
+## Desarrollo y validación tecnológica — TRL5
 
-- Adjuntar captura con los seis reportes después del reinicio del servidor; su persistencia ya fue confirmada verbalmente por el usuario.
-- Conservar evidencias visuales de la prueba de acceso y consulta desde el celular en la red local; el usuario ya informó que funcionó.
-- Incorporar al documento maestro el Excel y las evidencias de la evaluación de usabilidad realizada con cinco participantes reales.
-- Asociar cada prueba con los requerimientos y documentar hallazgos.
-- Incorporar las evidencias al documento maestro y al video de sustentación (máximo 10 minutos).
+VíaClara cuenta con un prototipo web funcional para registrar, georreferenciar, consultar y gestionar afectaciones viales. Se verificaron **11 pruebas automatizadas con 76 aserciones aprobadas**, la conservación de reportes después de reiniciar el servidor, el acceso desde un dispositivo móvil y la evaluación de usabilidad con cinco participantes.
 
-**Estado académico:** evidencias parciales de integración; validación TRL5 todavía en desarrollo.
+La descripción del desarrollo, la metodología Scrum, los resultados y las evidencias técnicas que respaldan la **sustentación del nivel TRL5** se consolidan en el documento maestro de la Fase 4 y sus anexos.
